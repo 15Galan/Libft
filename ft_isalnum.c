@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/11/30 13:32:00 by antgalan         ###   ########.fr       */
+/*   Created: 2022/11/30 11:57:58 by antgalan          #+#    #+#             */
+/*   Updated: 2022/11/30 13:31:51 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-
-#endif
+/**
+ * @brief	Checks if the passed character is an alphanumeric character.
+ * 
+ * @param c 	The character to check.
+ * 
+ * @return	1 if the character is an alphanumeric character, 0 otherwise.
+ */
+int	ft_isalnum(int c)
+{
+	return (ft_isalpha(c) || ft_isdigit(c));
+}
