@@ -1,0 +1,5 @@
+# Archivos basura
+.DS_Store
+
+# Archivos compilados
+*.out
