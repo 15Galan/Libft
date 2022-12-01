@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 10:59:33 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:18:39 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
