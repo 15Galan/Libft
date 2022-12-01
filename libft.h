@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 12:16:18 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:18:53 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_isspace(int c);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t elms, size_t size);
+char	*ft_strdup(const char *str);
 
 #endif
