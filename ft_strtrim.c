@@ -6,15 +6,15 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:12:38 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 13:14:18 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:56:03 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief	Allocates and returns a copy of ’s1’ with the characters specified in
- * 			’set’ removed from the beginning and the end of the string.
+ * @brief	Allocates and returns a copy of ’s1’ with the characters specified
+ * 			in ’set’ removed from the beginning and the end of the string.
  * 
  * @param s1	String to be trimmed.
  * @param set	Reference set of characters to trim.
@@ -23,20 +23,18 @@
  */
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	size_t	len;
+	char	*res;
+	size_t	i;
+	size_t	end;
 
 	if (!s1 || !set)
 		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	str = (char *) malloc(len + 1);
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, len);
-	str[len] = '\0';
-	return (str);
+	i = 0;
+	end = ft_strlen(s1);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	while (i < end && ft_strchr(set, s1[end - 1]))
+		end--;
+	res = ft_substr(s1, i, end - i);
+	return (res);
 }
