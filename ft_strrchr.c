@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:56:47 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 10:58:19 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:39:43 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /**
  * @brief	Locates the last occurrence of 'c' (converted to a char) in the
- * 			string pointed to by 'str'. The terminating null character is
+ * 			string pointed to by 'str'. The null-terminating character is
  * 			considered to be part of the string; therefore if 'c' is '\0', the
  * 			functions locate the terminating '\0'.
  * 
@@ -26,18 +26,14 @@
  */
 char	*ft_strrchr(const char *str, int c)
 {
-	char	*last;
+	int	i;
 
-	last = NULL;
-	while (*str)
+	i = ft_strlen(str);
+	while (0 <= i)
 	{
-		if (*str == (char) c)
-			last = (char *) str;
-		str++;
+		if (str[i] == (char) c)
+			return ((char *) str + i);
+		i--;
 	}
-	if (last)
-		return (last);
-	if (c == '\0')
-		return ((char *) str);
 	return (NULL);
 }
