@@ -1,5 +1,14 @@
+# Archivos de configuración de IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+
 # Archivos basura
 .DS_Store
 
 # Archivos compilados
+*.a
 *.out
