@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:15:08 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/02 17:55:14 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:03:59 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,28 +91,29 @@ static char	*substrcpy(const char *str, size_t start, size_t end)
  */
 char	**ft_split(const char *str, char c)
 {
-	char	**split;
-	int		start;
+	char	**res;
+	int		wrds;
 	int		i;
 	int		j;
 
 	if (!str)
 		return (NULL);
-	split = (char **) malloc(sizeof(char *) * (count_words(str, c) + 1));
-	if (!split)
+	wrds = count_words(str, c);
+	res = (char **) malloc(sizeof(char *) * (wrds + 1));
+	if (!res)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (str[i])
+	while (j < wrds)
 	{
-		if (str[i] != c)
-		{
-			start = i;
-			split[j++] = substrcpy(str, start, find_end(str, c, start));
-		}
-		else
+		while (str[i] == c)
 			i++;
+		res[j] = substrcpy(str, i, find_end(str, c, i));
+		if (!res[j])
+			return (NULL);
+		i = find_end(str, c, i);
+		j++;
 	}
-	split[j] = NULL;
-	return (split);
+	res[j] = NULL;
+	return (res);
 }
