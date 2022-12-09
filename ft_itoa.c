@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:00:38 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/09 17:29:20 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/09 20:30:05 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,25 @@ int	ft_intlen(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		sgn;
+	long	num;
 	int		len;
 
-	sgn = 1;
-	len = ft_intlen(n);
-	if (n < 0)
-		sgn = -1;
+	num = (long) n;
+	len = ft_intlen(num);
 	str = (char *) malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
+	str[0] = '0';
 	str[len] = '\0';
-	while (len--)
+	if (num < 0)
 	{
-		str[len] = '0' + (n % 10);
-		n /= 10;
-	}
-	if (sgn == -1)
 		str[0] = '-';
+		num = -num;
+	}
+	while (num)
+	{
+		str[--len] = '0' + num % 10;
+		num /= 10;
+	}
 	return (str);
 }
