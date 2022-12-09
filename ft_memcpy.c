@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 09:53:01 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 10:01:25 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/09 21:22:27 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{
