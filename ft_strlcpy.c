@@ -6,22 +6,12 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:03:19 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 10:07:55 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:35:07 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief	Copies up to size - 1 characters from the NULL-terminated string
- * 			'src' to 'dst', NULL-terminating the result.
- * 
- * @param dst 	The destination string.
- * @param src 	The source string.
- * @param sze 	The size of the destination string.
- * 
- * @return	The total length of the string 'src'.
- */
 size_t	ft_strlcpy(char *dst, const char *src, size_t sze)
 {
 	size_t	i;

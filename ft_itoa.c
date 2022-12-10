@@ -6,19 +6,12 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:00:38 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/09 20:30:05 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/10 20:51:11 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief 	Counts the number of digits in an integer.
- * 
- * @param n 	The integer to count the digits of.
- * 
- * @return	Number of digits in the integer.
- */
 int	ft_intlen(int n)
 {
 	int	len;
@@ -34,13 +27,6 @@ int	ft_intlen(int n)
 	return (len);
 }
 
-/**
- * @brief	Converts an integer to a string.
- * 
- * @param n 	The integer to convert.
- * 
- * @return	Pointer to the string.
- */
 char	*ft_itoa(int n)
 {
 	char	*str;

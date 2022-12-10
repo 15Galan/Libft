@@ -6,21 +6,12 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:41 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/01 13:10:59 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:33:25 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief	Allocates memory for a new string, which is the result of the
- * 			concatenation of 's1' and 's2'.
- * 
- * @param s1	First string.
- * @param s2	Second string.
- * 
- * @return	Pointer to the new string.
- */
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;

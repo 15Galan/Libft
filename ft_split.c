@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:15:08 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 19:25:19 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/10 21:25:49 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	next_word(char const *str, char c, int i)
  * 
  * @return	Number of words.
  */
-static size_t	count_words(const char *str, char c)
+static int	count_words(const char *str, char c)
 {
 	int	words;
 	int	i;
@@ -90,15 +90,6 @@ static void	free_split(char **str)
 	free(str);
 }
 
-/**
- * @brief	Splits a string into an array of strings using the character 'c' as a
- * 			delimiter.
- * 
- * @param str	String to be split.
- * @param c		Delimiter.
- * 
- * @return	Pointer to the array of strings.
- */
 char	**ft_split(const char *str, char c)
 {
 	char	**res;
