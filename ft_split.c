@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:15:08 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/09 18:03:59 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/10 19:25:19 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,31 @@
 /**
  * @brief	Computes the index of the next delimiter.
  * 
- * @param str	String to search.
+ * @param str	String where search.
  * @param c 	Delimiter character.
  * @param i 	Index of the actual iteration.
  * 
  * @return	Pointer to the substring.
  */
-static int	find_end(char const *str, char c, int i)
+static int	next_delimiter(char const *str, char c, int i)
 {
 	while (str[i] && str[i] != c)
+		i++;
+	return (i);
+}
+
+/**
+ * @brief	Computes the index of the next word.
+ * 
+ * @param str	String where search.
+ * @param c 	Delimiter character.
+ * @param i 	Index of the actual iteration.
+ * 
+ * @return	Pointer to the substring.
+ */
+static int	next_word(char const *str, char c, int i)
+{
+	while (str[i] && str[i] == c)
 		i++;
 	return (i);
 }
@@ -48,7 +64,7 @@ static size_t	count_words(const char *str, char c)
 		if (str[i] != c)
 		{
 			words++;
-			i = find_end(str, c, i);
+			i = next_delimiter(str, c, i);
 		}
 		else
 			i++;
@@ -57,27 +73,21 @@ static size_t	count_words(const char *str, char c)
 }
 
 /**
- * @brief	Creates a new string with the content of 'str' from 'start' to 'end'.
+ * @brief	Frees the memory of an array of strings.
  * 
- * @param str	String to be copied.
- * @param start	Starting index.
- * @param end	Ending index.
- * 
- * @return	Pointer to the new string.
+ * @param str	Array of strings to be freed.
  */
-static char	*substrcpy(const char *str, size_t start, size_t end)
+static void	free_split(char **str)
 {
-	char	*substr;
-	int		i;
+	int	i;
 
-	substr = (char *) malloc(end - start + 1);
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (start < end)
-		substr[i++] = str[start++];
-	substr[i] = '\0';
-	return (substr);
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
 /**
@@ -96,22 +106,22 @@ char	**ft_split(const char *str, char c)
 	int		i;
 	int		j;
 
-	if (!str)
-		return (NULL);
 	wrds = count_words(str, c);
 	res = (char **) malloc(sizeof(char *) * (wrds + 1));
-	if (!res)
+	if (!str || !res)
 		return (NULL);
 	i = 0;
 	j = 0;
 	while (j < wrds)
 	{
-		while (str[i] == c)
-			i++;
-		res[j] = substrcpy(str, i, find_end(str, c, i));
+		i = next_word(str, c, i);
+		res[j] = ft_substr(str, i, next_delimiter(str, c, i) - i);
 		if (!res[j])
+		{
+			free_split(res);
 			return (NULL);
-		i = find_end(str, c, i);
+		}
+		i = next_delimiter(str, c, i);
 		j++;
 	}
 	res[j] = NULL;
