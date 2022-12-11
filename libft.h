@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 17:57:00 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:21:31 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,15 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
  * @return t_list* 	The new element.
  */
 t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief	Counts the number of elements in a list.
+ * 
+ * @param lst	The beginning of the list.
+ *
+ * @return	The number of elements in the list. 
+ */
+int		ft_lstsize(t_list *lst);
 
 /**
  * @brief	Locates the first occurrence of 'c' (converted to an unsigned char)
