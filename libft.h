@@ -168,6 +168,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
+ * @brief	Iterates a list and applies a function to each element.
+ * 
+ * @param lst	Pointer to the first element of the list.
+ * @param f	    Pointer to the function to apply to each element.
+ */
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
  * @brief	Returns the last element of the list.
  * 
  * @param lst	Pointer to the first element of the list.
