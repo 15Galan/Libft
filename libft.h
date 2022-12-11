@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 20:27:08 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:31:43 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,15 @@ char	*ft_itoa(int n);
  * @param new	Pointer to the element to add at the beginning of the list.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief	Returns the last element of the list.
+ * 
+ * @param lst	Pointer to the first element of the list.
+ * 
+ * @return	The last element of the list.
+ */
+t_list	*ft_lstlast(t_list *lst);
 
 /**
  * @brief	Creates a new element of the list.
