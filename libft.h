@@ -135,6 +135,8 @@ char	*ft_itoa(int n);
 
 /**
  * @brief Adds the element 'new' at the beginning of the list.
+/**
+ * @brief   Adds the element 'new' at the beginning of the list.
  * 
  * @param lst	Pointer to the first link of the list.
  * @param new	Pointer to the element to add at the beginning of the list.
