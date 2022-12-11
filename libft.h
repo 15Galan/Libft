@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 20:21:31 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:27:08 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
  * @brief	Creates a new element of the list.
- * 			The variable 'content' is initialized with the value of the
- * 			parameter 'content'; the variable 'next' is initialized to NULL.
  * 
  * @param content 	The content to create the new element with.
  * 
