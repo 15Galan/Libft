@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 14:46:09 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:15:40 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,17 @@ int		ft_isspace(int c);
  * @return	Pointer to the string.
  */
 char	*ft_itoa(int n);
+
+/**
+ * @brief	Creates a new element of the list.
+ * 			The variable 'content' is initialized with the value of the
+ * 			parameter 'content'; the variable 'next' is initialized to NULL.
+ * 
+ * @param content 	The content to create the new element with.
+ * 
+ * @return t_list* 	The new element.
+ */
+t_list	*ft_lstnew(void *content);
 
 /**
  * @brief	Locates the first occurrence of 'c' (converted to an unsigned char)
