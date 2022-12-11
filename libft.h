@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 21:19:24 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:39:54 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,11 +151,19 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
  * @brief	Deletes and frees the given element and every successor of that
- * 			element.
+ * 			element, using the function 'del' to delete the content.
  * 
- * @param	lst		The address of a pointer to an element.
- * @param	del		The address of the function used to delete the content of
- * 					the element.
+ * @param lst	Pointer to the first link of the list.
+ * @param del	Pointer to the function used to delete the elements.
+ */
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief	Deletes and frees the given element, using the function 'del' to
+ * 			delete the content.
+ * 
+ * @param lst	Pointer to the first element of the list.
+ * @param del	Pointer to the function used to delete the elements.
  */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
