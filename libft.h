@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 20:31:43 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:04:47 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,16 @@ char	*ft_itoa(int n);
  * @param new	Pointer to the element to add at the beginning of the list.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief	Deletes and frees the given element and every successor of that
+ * 			element.
+ * 
+ * @param	lst		The address of a pointer to an element.
+ * @param	del		The address of the function used to delete the content of
+ * 					the element.
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
  * @brief	Returns the last element of the list.
