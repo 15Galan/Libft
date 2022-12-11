@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 16:15:40 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:57:00 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ int		ft_isprint(int c);
 /**
  * @brief	Checks if the passed character is a white-space character.
  *          In the "C" and "POSIX" locales, these are: space (' '), form-feed
- *          ('\f'), newline ('\n'), carriage return ('\r'), horizontal tab
- *          ('\t'), and vertical tab ('\v').
+ *          ('\\f'), newline ('\\n'), carriage return ('\\r'), horizontal tab
+ *          ('\\t'), and vertical tab ('\\v').
  * 
  * @param c		The character to check.
  * 
@@ -132,6 +132,14 @@ int		ft_isspace(int c);
  * @return	Pointer to the string.
  */
 char	*ft_itoa(int n);
+
+/**
+ * @brief Adds the element 'new' at the beginning of the list.
+ * 
+ * @param lst	Pointer to the first link of the list.
+ * @param new	Pointer to the element to add at the beginning of the list.
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
  * @brief	Creates a new element of the list.
