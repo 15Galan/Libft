@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 21:16:40 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/11 21:19:24 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ int		ft_isspace(int c);
 char	*ft_itoa(int n);
 
 /**
- * @brief 	Adds the element 'new' at the end of the list.
+ * @brief 	Adds a new element at the end of the list.
  * 
  * @param lst	Pointer to a pointer to the first link of a list.
  * @param new	Pointer to the element to be added to the list.
@@ -142,10 +142,10 @@ char	*ft_itoa(int n);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
 /**
- * @brief   Adds the element 'new' at the beginning of the list.
+ * @brief   Adds a new element at the beginning of the list.
  * 
  * @param lst	Pointer to the first link of the list.
- * @param new	Pointer to the element to add at the beginning of the list.
+ * @param new	Pointer to the element to be added to the list.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
