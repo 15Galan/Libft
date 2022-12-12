@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 21:39:54 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:11:43 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,16 +180,31 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * 
  * @param lst	Pointer to the first element of the list.
  * 
- * @return	The last element of the list.
+ * @return	The last element of the list;
+ * 			NULL if the list is empty.
  */
 t_list	*ft_lstlast(t_list *lst);
+
+/**
+ * @brief	Iterates a list and applies a function to the content of each
+ * 			element, saving those changes in a new list.
+ * 
+ * @param lst 	The beginning of the list.
+ * @param f 	The function to apply to each element.
+ * @param del 	The function to delete an element if needed.
+ * 
+ * @return	The new list;
+ * 			NULL if the allocation fails.
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /**
  * @brief	Creates a new element of the list.
  * 
  * @param content 	The content to create the new element with.
  * 
- * @return t_list* 	The new element.
+ * @return	The new element;
+ * 			NULL if the allocation fails.
  */
 t_list	*ft_lstnew(void *content);
 
