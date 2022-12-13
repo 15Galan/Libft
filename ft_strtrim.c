@@ -6,12 +6,20 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:12:38 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:37:41 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 19:13:46 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+One counter is used to find the first character to the substring, and other to
+find the last character to the substring; the first one is incremented until
+the character is not in the set, and the second one is decremented until the
+character is not in the set.
+
+The trimmed substring length is the difference between the counters.
+*/
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;

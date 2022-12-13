@@ -6,12 +6,19 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:09:41 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:33:25 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:53:55 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Both arguments must be non-NULL, otherwise the function must do nothing.
+First, the function allocates memory for the new string.
+Then, the function copies the content of 's1' and 's2' into the new string,
+copying the 's1' in the beginning and the 's2' at the end of 's1' (pointer to
+'s1' and the length of 's1' as offset).
+*/
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;

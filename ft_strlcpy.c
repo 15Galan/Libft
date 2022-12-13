@@ -6,12 +6,15 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 10:03:19 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:35:07 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 19:01:00 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+The resulting string in dst is always null-terminated, unless 'sze' is 0.
+*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t sze)
 {
 	size_t	i;

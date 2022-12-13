@@ -6,12 +6,15 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:00:38 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 20:51:11 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:38:59 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+Counting the digits of a number is equivalent to dividing it by 10 repeatedly.
+*/
 int	ft_intlen(int n)
 {
 	int	len;
@@ -27,6 +30,13 @@ int	ft_intlen(int n)
 	return (len);
 }
 
+/*
+First, the length of the number is needed to allocate the memory for the string.
+Then, the sign is checked: if the number is negative, the first character of the
+string is set to '-' and the number is turned to positive.
+The number is converted to a string by dividing it by 10 and taking the remainder
+as a digit. The digits are placed in the string from the end to the beginning.
+*/
 char	*ft_itoa(int n)
 {
 	char	*str;

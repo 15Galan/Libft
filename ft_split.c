@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:15:08 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:25:49 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:43:34 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,16 @@ static void	free_split(char **str)
 	free(str);
 }
 
+/*
+First, the function counts the number of words in the string.
+Then, it allocates memory for the array of strings.
+Then, it allocates memory for each string and copies it.
+Finally, it returns the array of strings.
+
+If the array of strings cannot be allocated, the function returns NULL.
+If any of the strings cannot be allocated, the function frees the memory
+of the array of strings and returns NULL.
+*/
 char	**ft_split(const char *str, char c)
 {
 	char	**res;
