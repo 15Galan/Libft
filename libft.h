@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 22:11:07 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:09:37 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+/**
+ * @brief	Structure for a linked list.
+ * 
+ * @param content	The content of the element.
+ * @param next		Pointer to the next element.
+ */
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 /**
  * @brief	Converts the initial portion of the string pointed to by 'str' to
@@ -108,8 +120,8 @@ int		ft_isprint(int c);
 /**
  * @brief	Checks if the passed character is a white-space character.
  *          In the "C" and "POSIX" locales, these are: space (' '), form-feed
- *          ('\f'), newline ('\n'), carriage return ('\r'), horizontal tab
- *          ('\t'), and vertical tab ('\v').
+ *          ('\\f'), newline ('\\n'), carriage return ('\\r'), horizontal tab
+ *          ('\\t'), and vertical tab ('\\v').
  * 
  * @param c		The character to check.
  * 
@@ -126,6 +138,88 @@ int		ft_isspace(int c);
  * @return	Pointer to the string.
  */
 char	*ft_itoa(int n);
+
+/**
+ * @brief 	Adds a new element at the end of the list.
+ * 
+ * @param lst	Pointer to a pointer to the first element of the list.
+ * @param new	Pointer to the element to be added to the list.
+ */
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/**
+ * @brief   Adds a new element at the beginning of the list.
+ * 
+ * @param lst	Pointer to a pointer to the first element of the list.
+ * @param new	Pointer to the element to be added to the list.
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief	Deletes the given element and every successor of that element.
+ * 
+ * @param lst	Pointer to an element of the list.
+ * @param del	Pointer to the function used to delete the elements.
+ */
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief	Deletes the given element.
+ * 
+ * @param lst	Pointer to an element of the list.
+ * @param del	Pointer to the function used to delete the elements.
+ */
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/**
+ * @brief	Iterates a list and applies a function to each element.
+ * 
+ * @param lst	Pointer to the first element of the list.
+ * @param f	    Pointer to the function to apply to each element.
+ */
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief	Returns the last element of the list.
+ * 
+ * @param lst	Pointer to the first element of the list.
+ * 
+ * @return	The last element of the list;
+ * 			NULL if the list is empty.
+ */
+t_list	*ft_lstlast(t_list *lst);
+
+/**
+ * @brief	Iterates a list and applies a function to each element, saving those
+ * 			changes in a new list.
+ * 
+ * @param lst 	Pointer to the first element of the list.
+ * @param f 	Pointer to the function to apply to each element.
+ * @param del 	Pointer to the function to delete an element if needed.
+ * 
+ * @return	The new list;
+ * 			NULL if the allocation fails.
+ */
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**
+ * @brief	Creates a new element of the list.
+ * 
+ * @param content 	The content to create the new element with.
+ * 
+ * @return	The new element;
+ * 			NULL if the allocation fails.
+ */
+t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief	Counts the number of elements in a list.
+ * 
+ * @param lst	The beginning of the list.
+ *
+ * @return	The number of elements in the list. 
+ */
+int		ft_lstsize(t_list *lst);
 
 /**
  * @brief	Locates the first occurrence of 'c' (converted to an unsigned char)
