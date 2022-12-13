@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/12 12:11:43 by antgalan         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:09:37 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+/**
+ * @brief	Structure for a linked list.
+ * 
+ * @param content	The content of the element.
+ * @param next		Pointer to the next element.
+ */
 typedef struct s_list
 {
 	void			*content;
@@ -136,7 +142,7 @@ char	*ft_itoa(int n);
 /**
  * @brief 	Adds a new element at the end of the list.
  * 
- * @param lst	Pointer to a pointer to the first link of a list.
+ * @param lst	Pointer to a pointer to the first element of the list.
  * @param new	Pointer to the element to be added to the list.
  */
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -144,25 +150,23 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 /**
  * @brief   Adds a new element at the beginning of the list.
  * 
- * @param lst	Pointer to the first link of the list.
+ * @param lst	Pointer to a pointer to the first element of the list.
  * @param new	Pointer to the element to be added to the list.
  */
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
- * @brief	Deletes and frees the given element and every successor of that
- * 			element, using the function 'del' to delete the content.
+ * @brief	Deletes the given element and every successor of that element.
  * 
- * @param lst	Pointer to the first link of the list.
+ * @param lst	Pointer to an element of the list.
  * @param del	Pointer to the function used to delete the elements.
  */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
- * @brief	Deletes and frees the given element, using the function 'del' to
- * 			delete the content.
+ * @brief	Deletes the given element.
  * 
- * @param lst	Pointer to the first element of the list.
+ * @param lst	Pointer to an element of the list.
  * @param del	Pointer to the function used to delete the elements.
  */
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
@@ -186,12 +190,12 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
 
 /**
- * @brief	Iterates a list and applies a function to the content of each
- * 			element, saving those changes in a new list.
+ * @brief	Iterates a list and applies a function to each element, saving those
+ * 			changes in a new list.
  * 
- * @param lst 	The beginning of the list.
- * @param f 	The function to apply to each element.
- * @param del 	The function to delete an element if needed.
+ * @param lst 	Pointer to the first element of the list.
+ * @param f 	Pointer to the function to apply to each element.
+ * @param del 	Pointer to the function to delete an element if needed.
  * 
  * @return	The new list;
  * 			NULL if the allocation fails.
