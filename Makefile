@@ -1,12 +1,12 @@
 # Instructions
-NAME 	= libft.a
-CC 		= gcc
-CFLAGS 	= -Wall -Wextra -Werror
-AR 		= ar rc
-RM 		= rm -f
+NAME 	= 	libft.a
+CC 		= 	gcc
+CFLAGS 	= 	-Wall -Wextra -Werror
+AR 		= 	ar rc
+RM 		= 	rm -f
 
 # Directories
-OBJDIR	= obj
+OBJDIR	= 	obj
 
 # Files
 SRC		=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c 		\
@@ -16,31 +16,37 @@ SRC		=	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c 		\
 			ft_tolower.c ft_toupper.c ft_calloc.c ft_strlcpy.c ft_strlcat.c 	\
 			ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c ft_strmapi.c 		\
 			ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_striteri.c
-OBJ		=	$(SRC:.c=.o)
+OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 SRCBON 	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c  		\
 			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c		\
 			ft_lstclear_bonus.c	ft_lstiter_bonus.c ft_lstmap_bonus.c
-OBJBON 	=	$(SRCBON:.c=.o)
+OBJBON 	=	$(addprefix $(OBJDIR)/, $(SRCBON:.c=.o))
 
 # Rules
 all: $(NAME)
+	@echo "File '$(NAME)' created."
 
-bonus: $(NAME)
+$(NAME): $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
+	@echo "Mandatory functions compiled."
 
-$(NAME): $(OBJ) $(OBJBON)
-	@$(AR) $(NAME) $(addprefix $(OBJDIR)/, $(OBJ))
-	@$(AR) $(NAME) $(addprefix $(OBJDIR)/, $(OBJBON))	
+bonus: $(OBJ) $(OBJBON)
+	@$(AR) $(NAME) $(OBJ) $(OBJBON)
+	@echo "Mandatory and bonus functions compiled."
 
-%.o: %.c
+$(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	$(CC) -c $< $(CFLAGS) -o $(OBJDIR)/$@
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "* File '$<' compiled."
 
 clean:
-	rm -rf $(OBJDIR)
+	@$(RM) -r $(OBJDIR)
+	@echo "Object files removed."
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
+	@echo "File '$(NAME)' removed."
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
