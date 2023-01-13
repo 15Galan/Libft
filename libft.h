@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/13 17:09:37 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:21:45 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,8 +292,10 @@ void	*ft_memset(void *s, int c, size_t n);
  * 
  * @param c 	The character to write.
  * @param fd 	The file descriptor on which to write.
+ *
+ * @return	The number of characters written (in this case, just 1).
  */
-void	ft_putchar_fd(char c, int fd);
+int		ft_putchar_fd(char c, int fd);
 
 /**
  * @brief	Writes the string 's' to the given file descriptor, followed by a
@@ -301,24 +303,30 @@ void	ft_putchar_fd(char c, int fd);
  * 
  * @param s 	The string to write.
  * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written.
  */
-void	ft_putendl_fd(char *s, int fd);
+int		ft_putendl_fd(char *s, int fd);
 
 /**
  * @brief	Writes the integer 'n' to the given file descriptor.
  * 
  * @param n 	The integer to write.
  * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written (in this case, digits).
  */
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 
 /**
  * @brief	Writes the string 's' to the given file descriptor.
  * 
  * @param s 	The string to write.
  * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written.
  */
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr_fd(char *s, int fd);
 
 /**
  * @brief	Splits a string into an array of strings using the character 'c' as a
