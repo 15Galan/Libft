@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_file_numbers.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 18:17:01 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:10:24 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/02 18:20:57 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:27:01 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	write(fd, &c, 1);
+	char	c;
+	long	num;
+
+	num = (long) n;
+	if (num < 0)
+	{
+		ft_putchar_fd('-', fd);
+		num = -num;
+	}
+	if (9 < num)
+		ft_putnbr_fd((int)(num / 10), fd);
+	c = (char) '0' + (num % 10);
+	ft_putchar_fd(c, fd);
 }
