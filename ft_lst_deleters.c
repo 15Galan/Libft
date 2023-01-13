@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_additions.c                                :+:      :+:    :+:   */
+/*   ft_lst_deleters.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 20:49:37 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/13 01:15:32 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/11 21:21:33 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:43:15 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst && new)
+	if (lst && del)
 	{
-		new->next = *lst;
-		*lst = new;
+		del(lst->content);
+		free(lst);
 	}
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*last;
+	t_list	*aux;
 
-	if (lst && new)
+	if (lst && del)
 	{
-		if (!*lst)
-			*lst = new;
-		else
+		while (*lst)
 		{
-			last = ft_lstlast(*lst);
-			last->next = new;
+			aux = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = aux;
 		}
 	}
 }

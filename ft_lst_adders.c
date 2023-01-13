@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_stats.c                                    :+:      :+:    :+:   */
+/*   ft_lst_adders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 20:29:10 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/13 01:15:38 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/11 20:49:37 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:43:14 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (lst)
+	if (lst && new)
 	{
-		lst = lst->next;
-		i++;
+		new->next = *lst;
+		*lst = new;
 	}
-	return (i);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_list	*last;
+
+	if (lst && new)
+	{
+		if (!*lst)
+			*lst = new;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+	}
 }
