@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memory.c                                        :+:      :+:    :+:   */
+/*   ft_mem_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:20:09 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/13 01:02:26 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/13 02:00:04 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-
-	if (!dst && !src)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *) dst)[i] = ((unsigned char *) src)[i];
-		i++;
-	}
-	return (dst);
-}
-
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t	i;
@@ -85,14 +70,4 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		}
 	}
 	return (dst);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-		((unsigned char *) s)[i++] = (unsigned char) c;
-	return (s);
 }
