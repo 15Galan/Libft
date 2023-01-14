@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/14 12:54:24 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/14 21:03:47 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 /**
  * @brief	Structure for a linked list.
@@ -286,6 +287,16 @@ void	*ft_memmove(void *dst, const void *src, size_t n);
  * @return	Memory area pointed to by 's'.
  */
 void	*ft_memset(void *s, int c, size_t n);
+
+/**
+ * @brief 	Parse format string and print arguments.
+ * 
+ * @param str	Formated string (can contain format specifiers).
+ * @param ...	Formated string's arguments.
+ * 
+ * @return	Number of characters printed.
+ */
+int		ft_printf(const char *str, ...);
 
 /**
  * @brief	Writes the character 'c' to the given file descriptor.
