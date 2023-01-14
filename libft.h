@@ -309,6 +309,16 @@ int		ft_putchar_fd(char c, int fd);
 int		ft_putendl_fd(char *s, int fd);
 
 /**
+ * @brief 	Writes the memory address 'mem' to the given file descriptor.
+ * 
+ * @param mem	The memory address to write.
+ * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written.
+ */
+int		ft_putmem_fd(unsigned short mem, int fd);
+
+/**
  * @brief	Writes the integer 'n' to the given file descriptor.
  * 
  * @param n 	The integer to write.
