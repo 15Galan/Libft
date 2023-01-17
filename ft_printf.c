@@ -25,9 +25,7 @@ int	print_data(const char c, va_list args)
 		return (ft_putstr_fd(va_arg(args, char *), 1));
 	else if (c == 'p')
 		return (ft_putmem_fd(va_arg(args, unsigned long long), 1));
-	else if (c == 'd')
-		return (ft_putnbr_fd(va_arg(args, unsigned int), 1));
-	else if (c == 'i')
+	else if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(args, int), 1));
 	else if (c == 'u')
 		return (ft_putnbr_fd(va_arg(args, unsigned int), 1));
