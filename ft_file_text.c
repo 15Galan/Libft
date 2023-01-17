@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:17:01 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/14 16:18:44 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:39:26 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_putstr_fd(char *s, int fd)
 {
 	int	len;
 
+	if (!s)
+		s = "(null)";
 	len = ft_strlen(s);
 	write(fd, s, len);
 	return (len);
