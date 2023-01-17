@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lst_adders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 13:38:54 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/10 21:35:28 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/11 20:49:37 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:43:14 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	size_t	i;
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
+
+	if (lst && new)
+	{
+		if (!*lst)
+			*lst = new;
+		else
+		{
+			last = ft_lstlast(*lst);
+			last->next = new;
+		}
+	}
 }

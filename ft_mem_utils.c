@@ -1,24 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_mem_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 09:58:52 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/13 18:30:37 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/01 11:20:09 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 02:00:04 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-If the source and destination overlap, then the destination it's returned because
-the behavior is undefined.
-If the source is behind the destination, the function must copy the bytes from
-the end to the beginning.
-The values must be casted to avoid undefined behavior.
-*/
+void	*ft_memchr(const void *str, int c, size_t n)
+{
+	unsigned char	*p;
+	unsigned int	i;
+
+	i = 0;
+	p = (unsigned char *) str;
+	while (i < n)
+	{
+		if (p[i] == (unsigned char) c)
+			return (p + i);
+		i++;
+	}
+	return (NULL);
+}
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*p1;
+	unsigned char	*p2;
+	unsigned int	i;
+
+	i = 0;
+	p1 = (unsigned char *) s1;
+	p2 = (unsigned char *) s2;
+	while (i < n)
+	{
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
+		i++;
+	}
+	return (0);
+}
+
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t	i;

@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_ascii.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/01 11:07:14 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/13 19:02:17 by antgalan         ###   ########.fr       */
+/*   Created: 2022/11/30 11:57:58 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:07:38 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_isalnum(int c)
 {
-	unsigned int	i;
+	return (ft_isalpha(c) || ft_isdigit(c));
+}
 
-	if (n == 0)
-		return (0);
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+int	ft_isalpha(int c)
+{
+	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
+}
+
+int	ft_isascii(int c)
+{
+	return (0 <= c && c <= 127);
+}
+
+int	ft_isdigit(int c)
+{
+	return ('0' <= c && c <= '9');
+}
+
+int	ft_isprint(int c)
+{
+	return (32 <= c && c <= 126);
 }

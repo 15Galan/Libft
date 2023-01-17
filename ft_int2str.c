@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_int2str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 11:46:31 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/13 17:32:14 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/13 02:03:02 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,6 @@ int	ft_isspace(int c)
 	return (c == ' ' || (9 <= c && c <= 13));
 }
 
-/*
-Separates the string into 3 parts: spaces, sign and number.
-1. The spaces are ignored, the pointer moves to the first non-space character.
-2. The sign is checked: '-' turns the sign to -1; '+' do nothing.
-3. The number is converted to an integer.
-The integer multiplication by 10 is equivalent to a shift to the left by one
-digit, and the addition just places the new digit in the rightmost position;
-repeating this process for each digit in the number.
-
-Storing the resulting integer in a long variable avoids overflow.
-*/
 int	ft_atoi(const char *str)
 {
 	int		sgn;
@@ -49,4 +38,45 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (res * sgn);
+}
+
+int	ft_intlen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	long	num;
+	int		len;
+
+	num = (long) n;
+	len = ft_intlen(num);
+	str = (char *) malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[0] = '0';
+	str[len] = '\0';
+	if (num < 0)
+	{
+		str[0] = '-';
+		num = -num;
+	}
+	while (num)
+	{
+		str[--len] = '0' + num % 10;
+		num /= 10;
+	}
+	return (str);
 }

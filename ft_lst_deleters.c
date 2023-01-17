@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lst_deleters.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 14:49:12 by antgalan          #+#    #+#             */
-/*   Updated: 2022/12/11 16:15:27 by antgalan         ###   ########.fr       */
+/*   Created: 2022/12/11 21:21:33 by antgalan          #+#    #+#             */
+/*   Updated: 2023/01/13 01:43:15 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list	*new;
+	if (lst && del)
+	{
+		del(lst->content);
+		free(lst);
+	}
+}
 
-	new = (t_list *) malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*aux;
+
+	if (lst && del)
+	{
+		while (*lst)
+		{
+			aux = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = aux;
+		}
+	}
 }
