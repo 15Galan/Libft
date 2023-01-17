@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:53:45 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/14 21:03:11 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:00:39 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	print_data(const char c, va_list args)
 	else if (c == 's')
 		return (ft_putstr_fd(va_arg(args, char *), 1));
 	else if (c == 'p')
-		return (ft_putmem_fd(va_arg(args, unsigned int), 1));
+		return (ft_putmem_fd(va_arg(args, unsigned long long), 1));
 	else if (c == 'd')
 		return (ft_putnbr_fd(va_arg(args, unsigned int), 1));
 	else if (c == 'i')

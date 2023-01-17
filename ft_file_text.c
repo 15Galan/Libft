@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:17:01 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/17 11:39:26 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:04:09 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ int	ft_putchar_fd(char c, int fd)
 	return (1);
 }
 
-int	ft_putmem_fd(unsigned short mem, int fd)
+int	ft_putmem_fd(unsigned long long mem, int fd)
 {
 	int	len;
 
+	if (!mem)
+		return (ft_putstr_fd("(nil)", fd));
 	len = 0;
 	len += ft_putstr_fd("0x", fd);
-	len += ft_putnbr_base_fd(mem, "0123456789abcdef", fd);
+	len += ft_putunbr_base_fd(mem, "0123456789abcdef", fd);
 	return (len);
 }
 

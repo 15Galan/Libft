@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:02:14 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/14 21:03:47 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:09:52 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -327,20 +327,20 @@ int		ft_putendl_fd(char *s, int fd);
  * 
  * @return	The number of characters written.
  */
-int		ft_putmem_fd(unsigned short mem, int fd);
+int		ft_putmem_fd(unsigned long long mem, int fd);
 
 /**
- * @brief	Writes the integer 'n' to the given file descriptor.
+ * @brief	Writes the number 'n' to the given file descriptor.
  * 
  * @param n 	The integer to write.
  * @param fd 	The file descriptor on which to write.
  * 
  * @return	The number of characters written (in this case, digits).
  */
-int		ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(long long n, int fd);
 
 /**
- * @brief 	Writes the integer 'n' to the given file descriptor in the given
+ * @brief 	Writes the number 'n' to the given file descriptor in the given
  * 			base.
  * 
  * @param n 	The integer to write.
@@ -349,7 +349,29 @@ int		ft_putnbr_fd(int n, int fd);
  * 
  * @return	The number of characters written (in this case, digits).
  */
-int		ft_putnbr_base_fd(int n, char *base, int fd);
+int		ft_putnbr_base_fd(long long n, char *base, int fd);
+
+/**
+ * @brief	Writes the unsigned number 'n' to the given file descriptor.
+ * 
+ * @param n 	The integer to write.
+ * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written (in this case, digits).
+ */
+int		ft_putunbr_fd(unsigned long long n, int fd);
+
+/**
+ * @brief 	Writes the unsigned number 'n' to the given file descriptor in the
+ * 			given base.
+ * 
+ * @param n 	The integer to write.
+ * @param base 	The base in which to write the integer.
+ * @param fd 	The file descriptor on which to write.
+ * 
+ * @return	The number of characters written (in this case, digits).
+ */
+int		ft_putunbr_base_fd(unsigned long long n, char *base, int fd);
 
 /**
  * @brief	Writes the string 's' to the given file descriptor.

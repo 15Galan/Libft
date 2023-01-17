@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:20:57 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/14 16:11:24 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:02:38 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,44 @@ static int	is_valid_base(char *base)
 	return (1);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(long long n, int fd)
 {
 	return (ft_putnbr_base_fd(n, "0123456789", fd));
 }
 
-int	ft_putnbr_base_fd(int n, char *base, int fd)
+int	ft_putnbr_base_fd(long long n, char *base, int fd)
 {
-	char	c;
-	long	num;
 	int		len;
-	int		b;
 
 	if (!is_valid_base(base))
 		return (0);
 	len = 0;
-	num = (long) n;
-	b = ft_strlen(base);
-	if (num < 0)
+	if (n < 0)
 	{
 		len += ft_putchar_fd('-', fd);
-		num = -num;
+		n *= -1;
 	}
-	if (b - 1 < num)
-		len += ft_putnbr_base_fd((int)(num / b), base, fd);
-	c = base[num % b];
+	return (len + ft_putunbr_base_fd(n, base, fd));
+}
+
+int	ft_putunbr_fd(unsigned long long n, int fd)
+{
+	return (ft_putunbr_base_fd(n, "0123456789", fd));
+}
+
+int	ft_putunbr_base_fd(unsigned long long n, char *base, int fd)
+{
+	char				c;
+	int					len;
+	unsigned long long	b;
+
+	if (!is_valid_base(base))
+		return (0);
+	len = 0;
+	b = ft_strlen(base);
+	if (b - 1 < n)
+		len += ft_putunbr_base_fd(n / b, base, fd);
+	c = base[n % b];
 	len += ft_putchar_fd(c, fd);
 	return (len);
 }
