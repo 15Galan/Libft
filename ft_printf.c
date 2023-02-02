@@ -6,7 +6,7 @@
 /*   By: antgalan <antgalan@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:53:45 by antgalan          #+#    #+#             */
-/*   Updated: 2023/01/17 17:00:39 by antgalan         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:19:14 by antgalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	len = 0;
 	va_start(args, str);
+	if (write(1, "", 0) == -1)
+		return (-1);
 	while (str[i])
 	{
 		if (str[i] == '%')
