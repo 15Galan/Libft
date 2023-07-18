@@ -175,3 +175,66 @@ Implementarás las siguientes funciones:
   </tr>
 </table>
 
+# Parte bonus
+
+Las funciones para manipular memoria y strings son muy útiles... Pero pronto descubrirás que la manipulación de listas lo es incluso más.
+
+Deberás utilizar la siguiente estructura para representar un nodo de tu lista.
+
+Añade la declaración a tu archivo `libft.h`:
+
+```c
+typedef struct s_list
+{
+    void            *content;
+    struct s_list   *next;
+} t_list;
+```
+
+- `content`: la información contenida por el nodo, que permite guardar cualquier tipo de información.
+- `next`: la dirección del siguiente nodo, o `NULL` si nodo es el último.
+
+Implementa las siguientes funciones para manipular listas:
+
+<table>
+  <tr>
+    <th>Nombre de la función</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td><code>ft_lstnew()</code></td>
+    <td>Crea un nuevo nodo con el contenido indicado y con <code>next</code> apuntando a <code>NULL</code>.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstadd_front()</code></td>
+    <td>Añade un nuevo nodo al inicio de una lista.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstsize()</code></td>
+    <td>Cuenta el número de nodos de una lista.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstlast()</code></td>
+    <td>Busca el último nodo de la lista.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstadd_back()</code></td>
+    <td>Añade un nuevo nodo al final de una lista.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstdelone()</code></td>
+    <td>Elimina un nodo de una lista.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstclear()</code></td>
+    <td>Elimina una lista al completo.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstiter()</code></td>
+    <td>Recorre la lista y aplica una función al contenido de cada nodo.</td>
+  </tr>
+  <tr>
+    <td><code>ft_lstmap()</code></td>
+    <td>Recorre la lista y aplica una función al contenido de cada nodo.</td>
+  </tr>
+</table>
